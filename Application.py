@@ -5,6 +5,7 @@ from flask import Flask, jsonify, render_template
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+
 template_dir = os.path.abspath('templates')
 app = Flask(__name__, template_folder=template_dir)
 
@@ -25,7 +26,7 @@ def get_database():
     pipeline = [{
         "$match": {
         }
-    },{"$limit": 100}]
+    }, {"$limit": 100}]
 
     res = col.aggregate(pipeline, allowDiskUse=True)
 
@@ -36,7 +37,7 @@ def get_database():
 
     client.close()
 
-    return render_template('index.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
+    return render_template('index.html', tables=[df.to_html(classes='data')], titles=df.columns.values)
 
 
 app.run()
