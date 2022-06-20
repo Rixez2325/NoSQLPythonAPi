@@ -13,7 +13,6 @@ app = Flask(__name__, template_folder=template_dir)
 def home():
     return jsonify('Hello World!')
 
-
 @app.route('/mobile', methods=("POST", "GET"))
 def get_database():
     URI = 'mongodb+srv://esgiMongo:esgiMongo@cluster0.uu5cw.mongodb.net/test'
@@ -38,5 +37,5 @@ def get_database():
 
     return render_template('index.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
 
-
-app.run()
+if __name__ == '__main__':
+    app.run()
