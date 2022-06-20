@@ -8,7 +8,7 @@ import numpy as np
 template_dir = os.path.abspath('templates')
 app = Flask(__name__, template_folder=template_dir)
 
-
+#print("jeff")
 @app.route('/')
 def home():
     return jsonify('Hello World!')
