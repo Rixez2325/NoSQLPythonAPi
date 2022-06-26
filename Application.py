@@ -8,12 +8,15 @@ import numpy as np
 template_dir = os.path.abspath('templates')
 app = Flask(__name__, template_folder=template_dir)
 
+<<<<<<< HEAD
 
 print("hey")
+=======
+#print("jeff")
+>>>>>>> 8c22a262485c1f9d26574ffa10d606c43b16771e
 @app.route('/')
 def home():
     return jsonify('Hello World!')
-
 
 @app.route('/mobile', methods=("POST", "GET"))
 def get_database():
@@ -39,5 +42,5 @@ def get_database():
 
     return render_template('index.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
 
-
-app.run()
+if __name__ == '__main__':
+    app.run()
